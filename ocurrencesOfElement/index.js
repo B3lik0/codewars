@@ -1,4 +1,4 @@
-function deleteNth(arr, n) {
+function deleteNth(arr, n) { //FIXME:
     let numReps = {}
     let positions = []
     arr.forEach(element => {
