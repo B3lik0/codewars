@@ -11,7 +11,7 @@
 //     }
 //     return arr[0]
 // }
-function cakes(recipe, available) {
+function cakes(recipe, available) { //FIXME:
     let ingredients = Object.keys(recipe)
     let arr = []
     for (let ingredient in ingredients)

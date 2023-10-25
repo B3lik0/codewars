@@ -1,15 +1,26 @@
-function deleteNth(arr, n) { //FIXME:
-    let numReps = {}
-    let positions = []
-    arr.forEach(element => {
-        numReps[element] = (numReps[element] || 0) + 1
-    })
+function deleteNth(arr, n) {
+  let numReps = {};
+  let posiciones = [];
 
-    Object.keys(numReps).map((value, key) => {
-        console.log(key, value, numReps[value])
-    })
-    // return valores
-
+  const result = arr.filter((element, index) => {
+    numReps[element] = (numReps[element] || 0) + 1;
+    if (numReps[element] <= n) {
+      return posiciones.push(index);
+    }
+  });
+  return result;
 }
 
-console.log(deleteNth([1, 2, 3, 1, 1, 2, 1, 2, 3, 3, 2, 4, 5, 3, 1], 3))
+//best practice
+function deleteNth(arr, n) {
+  let numReps = {};
+  return arr.filter((el, index) => {
+    numReps[el] = (numReps[el] || 0) + 1;
+    return numReps[el] <= n;
+  });
+}
+
+function deleteNth(arr, n) {
+  let numReps = {};
+  return arr.filter((el) => (numReps[el] = numReps[el] + 1 || 1) <= n);
+}
